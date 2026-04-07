@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta — Lunes 6 de abril de 2026</title>
+
+  <!-- Fuentes elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#07060b;
+      --bg2:#0c0714;
+      --card:#0f0b18;
+      --card2:#120d1e;
+      --ink:#f3eefc;
+      --muted:#c9bde2;
+      --muted2:#a995cf;
+      --accent:#b87cff;
+      --accent2:#ff63d8;
+      --gold:#f7dba3;
+      --line:rgba(184,124,255,.22);
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 0 30px rgba(184,124,255,.25);
+      --radius: 22px;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(184,124,255,.18), transparent 60%),
+        radial-gradient(900px 700px at 80% 30%, rgba(255,99,216,.14), transparent 65%),
+        radial-gradient(700px 700px at 50% 90%, rgba(247,219,163,.10), transparent 70%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* estrellas */
+    .stars{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.75;
+      background-image:
+        radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,.9) 50%, transparent 55%),
+        radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,.7) 50%, transparent 55%),
+        radial-gradient(1px 1px at 55% 35%, rgba(255,255,255,.6) 50%, transparent 55%),
+        radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,.7) 50%, transparent 55%),
+        radial-gradient(1px 1px at 65% 80%, rgba(255,255,255,.5) 50%, transparent 55%),
+        radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,.8) 50%, transparent 55%),
+        radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.7) 50%, transparent 55%);
+      background-repeat:repeat;
+      background-size: 450px 450px;
+      animation: twinkle 8s ease-in-out infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{opacity:.65; filter:blur(.2px);}
+      50%{opacity:.9; filter:blur(.0px);}
+    }
+
+    /* brillos flotantes */
+    .glow{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      background:
+        radial-gradient(500px 500px at 10% 90%, rgba(184,124,255,.16), transparent 70%),
+        radial-gradient(450px 450px at 90% 95%, rgba(255,99,216,.12), transparent 75%);
+      filter: blur(2px);
+      animation: floaty 10s ease-in-out infinite;
+      opacity:.9;
+    }
+
+    @keyframes floaty{
+      0%,100%{transform:translateY(0px);}
+      50%{transform:translateY(-14px);}
+    }
+
+    .wrap{
+      position:relative;
+      z-index:2;
+      width:min(980px, 92%);
+      margin: 42px auto 70px;
+    }
+
+    /* Encabezado */
+    .header{
+      text-align:center;
+      margin-bottom: 22px;
+      padding: 22px 16px;
+    }
+
+    .seal{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), transparent 45%),
+        radial-gradient(circle at 60% 70%, rgba(255,99,216,.22), transparent 55%),
+        linear-gradient(135deg, rgba(184,124,255,.35), rgba(20,10,30,.35));
+      border: 1px solid rgba(184,124,255,.35);
+      box-shadow: var(--shadow2);
+      margin-bottom: 14px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .seal::after{
+      content:"";
+      position:absolute;
+      inset:-30px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: rotate(25deg);
+      animation: shine 4.2s ease-in-out infinite;
+    }
+
+    @keyframes shine{
+      0%{transform:translateX(-120%) rotate(25deg);}
+      100%{transform:translateX(120%) rotate(25deg);}
+    }
+
+    .seal span{
+      font-size: 38px;
+      filter: drop-shadow(0 0 12px rgba(184,124,255,.45));
+    }
+
+    .date{
+      font-family:"Playfair Display", serif;
+      font-size: 16px;
+      letter-spacing:.8px;
+      color: var(--muted);
+      opacity:.95;
+    }
+
+    .title{
+      margin-top: 10px;
+      font-family:"Great Vibes", cursive;
+      font-size: clamp(46px, 5.4vw, 74px);
+      font-weight: 400;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(184,124,255,.25);
+    }
+
+    .subtitle{
+      margin-top: 8px;
+      color: var(--muted2);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Carta */
+    .letter{
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(184,124,255,.10), transparent 60%),
+        radial-gradient(700px 600px at 90% 30%, rgba(255,99,216,.08), transparent 65%),
+        linear-gradient(180deg, rgba(18,13,30,.88), rgba(12,8,18,.88));
+      border: 1px solid rgba(184,124,255,.22);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* marco brillante */
+    .letter::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: var(--radius);
+      padding:1px;
+      background: linear-gradient(135deg,
+        rgba(184,124,255,.65),
+        rgba(255,99,216,.35),
+        rgba(247,219,163,.25),
+        rgba(184,124,255,.55)
+      );
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity:.85;
+      pointer-events:none;
+    }
+
+    /* textura sutil */
+    .texture{
+      position:absolute;
+      inset:0;
+      opacity:.08;
+      background-image:url("https://www.transparenttextures.com/patterns/stardust.png");
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+
+    .letter-inner{
+      padding: 36px 30px 28px;
+    }
+
+    .opening{
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      letter-spacing:.3px;
+    }
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(184,124,255,.35), rgba(255,99,216,.25), transparent);
+      margin: 18px 0 22px;
+      position:relative;
+    }
+
+    .divider::after{
+      content:"✦";
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      font-size: 13px;
+      color: rgba(247,219,163,.85);
+      background: rgba(12,8,18,.88);
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(184,124,255,.18);
+      box-shadow: 0 0 20px rgba(184,124,255,.18);
+    }
+
+    .content{
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+      line-height: 1.9;
+      color: rgba(243,238,252,.95);
+      text-align: left;
+    }
+
+    .content p{
+      margin: 0 0 18px;
+    }
+
+    .content strong{
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0 0 18px rgba(184,124,255,.18);
+    }
+
+    .quote{
+      margin: 22px 0;
+      padding: 18px 18px 18px 20px;
+      border-left: 3px solid rgba(184,124,255,.55);
+      background: linear-gradient(90deg, rgba(184,124,255,.08), rgba(255,99,216,.05), transparent);
+      border-radius: 14px;
+      color: rgba(243,238,252,.92);
+      font-style: italic;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .quote::after{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background: radial-gradient(circle, rgba(255,255,255,.10), transparent 60%);
+      opacity:.7;
+      transform:translateX(-25%);
+    }
+
+    .signature{
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(184,124,255,.25);
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+
+    .sig-line{
+      font-family:"Inter", sans-serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .sig-name{
+      font-family:"Great Vibes", cursive;
+      font-size: 48px;
+      line-height: 1;
+      color:#fff;
+      text-shadow: 0 0 22px rgba(184,124,255,.25);
+      margin-top: 4px;
+    }
+
+    .sig-extra{
+      font-family:"Inter", sans-serif;
+      font-size: 14px;
+      color: rgba(201,189,226,.95);
+      letter-spacing:.35px;
+    }
+
+    /* frase neón */
+    .neon{
+      margin-top: 22px;
+      text-align:center;
+      padding: 18px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(184,124,255,.30);
+      background: linear-gradient(180deg, rgba(184,124,255,.10), rgba(255,99,216,.05));
+      box-shadow: 0 0 25px rgba(184,124,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .neon::before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+      transform: rotate(15deg);
+      animation: neonshine 5s ease-in-out infinite;
+      opacity:.8;
+    }
+
+    @keyframes neonshine{
+      0%{transform:translateX(-140%) rotate(15deg);}
+      100%{transform:translateX(140%) rotate(15deg);}
+    }
+
+    .neon-text{
+      font-family:"Inter", sans-serif;
+      font-size: 14px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: rgba(201,189,226,.9);
+      margin-bottom: 8px;
+      position:relative;
+      z-index:2;
+    }
+
+    .neon-phrase{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-weight: 600;
+      color: #fff;
+      text-shadow:
+        0 0 10px rgba(184,124,255,.65),
+        0 0 18px rgba(184,124,255,.55),
+        0 0 32px rgba(184,124,255,.35);
+      position:relative;
+      z-index:2;
+    }
+
+    .neon-phrase span{
+      color: rgba(184,124,255,.98);
+      text-shadow:
+        0 0 12px rgba(184,124,255,.75),
+        0 0 26px rgba(184,124,255,.55);
+      font-weight: 800;
+    }
+
+    /* Botón */
+    .actions{
+      margin-top: 22px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .btn{
+      border: none;
+      cursor:pointer;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-family:"Inter", sans-serif;
+      font-size: 14px;
+      letter-spacing:.6px;
+      text-transform: uppercase;
+      color:#0b0610;
+      background: linear-gradient(90deg, rgba(184,124,255,.95), rgba(255,99,216,.85));
+      box-shadow:
+        0 14px 40px rgba(184,124,255,.20),
+        0 0 22px rgba(255,99,216,.18);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn:hover{
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 18px 55px rgba(184,124,255,.28),
+        0 0 28px rgba(255,99,216,.20);
+    }
+
+    .btn:active{
+      transform: translateY(0px) scale(.98);
+    }
+
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.30), transparent);
+      transform: rotate(20deg);
+      animation: btnshine 4.6s ease-in-out infinite;
+      opacity:.9;
+    }
+
+    @keyframes btnshine{
+      0%{transform:translateX(-140%) rotate(20deg);}
+      100%{transform:translateX(140%) rotate(20deg);}
+    }
+
+    /* Cinemática */
+    .cinematic{
+      position:fixed;
+      inset:0;
+      z-index:50;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:
+        radial-gradient(900px 700px at 50% 30%, rgba(184,124,255,.22), transparent 60%),
+        radial-gradient(900px 700px at 50% 80%, rgba(255,99,216,.14), transparent 65%),
+        rgba(0,0,0,.75);
+      backdrop-filter: blur(8px);
+      padding: 22px;
+    }
+
+    .cinematic.active{
+      display:flex;
+      animation: fadeIn .35s ease forwards;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    .cin-box{
+      width:min(860px, 96%);
+      border-radius: 26px;
+      border: 1px solid rgba(184,124,255,.30);
+      background: linear-gradient(180deg, rgba(16,10,24,.92), rgba(8,6,12,.92));
+      box-shadow: 0 30px 90px rgba(0,0,0,.65);
+      padding: 26px 22px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cin-box::before{
+      content:"";
+      position:absolute;
+      inset:-80px;
+      background:
+        radial-gradient(circle, rgba(184,124,255,.20), transparent 60%),
+        radial-gradient(circle, rgba(255,99,216,.12), transparent 60%);
+      filter: blur(1px);
+      opacity:.9;
+    }
+
+    .cin-title{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      font-family:"Great Vibes", cursive;
+      font-size: 58px;
+      line-height: 1;
+      color:#fff;
+      text-shadow: 0 0 25px rgba(184,124,255,.25);
+      margin-bottom: 6px;
+    }
+
+    .cin-sub{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      font-family:"Inter", sans-serif;
+      font-size: 13px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(201,189,226,.85);
+      margin-bottom: 18px;
+    }
+
+    .cin-text{
+      position:relative;
+      z-index:2;
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+      line-height: 1.9;
+      color: rgba(243,238,252,.95);
+      padding: 12px 6px 0;
+      text-align:center;
+    }
+
+    .cin-text strong{
+      color:#fff;
+      text-shadow: 0 0 18px rgba(184,124,255,.18);
+    }
+
+    .cin-footer{
+      position:relative;
+      z-index:2;
+      margin-top: 18px;
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+
+    .mini-btn{
+      cursor:pointer;
+      border-radius:999px;
+      padding: 11px 18px;
+      border: 1px solid rgba(184,124,255,.28);
+      background: rgba(184,124,255,.10);
+      color: rgba(243,238,252,.92);
+      font-family:"Inter", sans-serif;
+      font-size: 13px;
+      letter-spacing:.6px;
+      text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .mini-btn:hover{
+      transform: translateY(-2px);
+      background: rgba(184,124,255,.16);
+    }
+
+    .spark{
+      margin-top: 14px;
+      font-size: 14px;
+      color: rgba(247,219,163,.88);
+      letter-spacing:.8px;
+      text-transform: uppercase;
+      text-align:center;
+      position:relative;
+      z-index:2;
+      opacity:.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px){
+      .letter-inner{padding: 26px 18px 22px;}
+      .content{font-size: 16.8px; line-height: 1.85;}
+      .sig-name{font-size: 44px;}
+      .cin-title{font-size: 50px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+  <div class="glow"></div>
+
+  <main class="wrap">
+
+    <header class="header">
+      <div class="seal"><span>💜</span></div>
+      <div class="date">Lunes, 6 de abril de 2026 — Noche</div>
+      <div class="title">Carta para ti</div>
+      <div class="subtitle">Un pedacito de mi corazón hecho palabras</div>
+    </header>
+
+    <section class="letter">
+      <div class="texture"></div>
+
+      <div class="letter-inner">
+        <div class="opening"><strong>Mi amor,</strong></div>
+        <div class="divider"></div>
+
+        <article class="content">
+
+          <p>
+            Esta noche no quiero escribirte como cualquier noche… esta noche quiero escribirte con el corazón en la mano,
+            con la voz temblándome por dentro, porque hoy fue mi cumpleaños… pero lo que realmente hizo especial este día
+            no fue la fecha, ni los regalos, ni las felicitaciones… <strong>fuiste tú.</strong>
+          </p>
+
+          <p><strong>Fuiste tú desde el primer segundo.</strong></p>
+
+          <p>
+            Y no exagero cuando digo que desde ayer, desde ese momento exacto en el que el reloj marcó las 12 en punto,
+            mi corazón sintió algo que nunca había sentido en un cumpleaños… sentí que por fin alguien me estaba celebrando
+            de verdad, que por fin alguien me estaba viendo con amor, con orgullo, con emoción… como si yo fuera alguien
+            importante en este mundo.
+          </p>
+
+          <p><strong>Y esa persona fuiste tú.</strong></p>
+
+          <p>
+            Mi amor… tú fuiste la primera. La primera en felicitarme. La primera en estar ahí. La primera en demostrarme
+            que no importa el cansancio, no importa el sueño, no importa el día pesado… porque tú me amas de una forma que
+            no se improvisa. Tú me amas con intención. Con alma. Con ese tipo de amor que se siente como un abrazo en medio
+            de una tormenta.
+          </p>
+
+          <p>
+            Y yo todavía no puedo sacarme de la cabeza ese mensaje tuyo… lo he leído tantas veces que ya casi me lo sé de
+            memoria. Y aun así, cada vez que lo leo, me vuelve a dar ese golpe en el pecho… como si me lo hubieras escrito
+            con tus labios, como si cada palabra viniera marcada con tus besos.
+          </p>
+
+          <div class="quote">
+            “Feliz cumpleaños al mejor novio del universo…”
+          </div>
+
+          <p><strong>Mi amor… yo no sé si tú entiendes lo que eso me hizo sentir.</strong></p>
+
+          <p>
+            Porque yo he pasado cumpleaños donde me he sentido solo, cumpleaños donde me han felicitado por costumbre, por
+            obligación… cumpleaños donde me han dicho “feliz cumpleaños” como si fuera un simple trámite. Pero tú… tú no.
+          </p>
+
+          <p>
+            Tú me felicitaste como si de verdad te importara que yo existiera. Como si fueras feliz de que yo esté en este
+            mundo. Como si mi vida fuera algo que vale la pena celebrar.
+          </p>
+
+          <p>
+            Y eso… eso no lo hace cualquiera. Eso lo hace una mujer que ama de verdad. Una mujer que siente de verdad.
+            Una mujer como tú.
+          </p>
+
+          <p>
+            Mi amor… tú dijiste que yo soy lo mejor que te ha pasado… pero esta noche yo necesito confesarte algo con total
+            sinceridad:
+          </p>
+
+          <p><strong>la mejor cosa que me ha pasado en la vida eres tú.</strong></p>
+
+          <p>
+            Tú eres ese milagro que llegó cuando yo no sabía que lo necesitaba. Tú eres esa bendición que se metió en mi vida
+            como un sueño… y desde entonces nada volvió a ser igual. Porque desde que tú estás conmigo, el mundo se siente
+            distinto… se siente más cálido, más vivo, más bonito.
+          </p>
+
+          <p>
+            Y no sé cómo explicarlo… pero contigo me siento más hombre. Más fuerte. Más valioso. Más capaz. Más amado.
+          </p>
+
+          <p>
+            Me siento como si por fin alguien hubiera encontrado la versión más bonita de mí… y la hubiera abrazado sin miedo.
+          </p>
+
+          <p>
+            Mi amor… tú dijiste que cada día intentas ser mejor por mí… y yo quiero que sepas que eso me derrite el alma,
+            porque yo también lo estoy haciendo. Yo también quiero ser mejor por ti.
+          </p>
+
+          <p>
+            Yo quiero ser ese hombre que te cuide en los días buenos… pero sobre todo en los días malos.<br>
+            Quiero ser el hombre que te abrace cuando no puedas más.<br>
+            Quiero ser el hombre que te mire a los ojos y te recuerde que tú vales demasiado.<br>
+            Quiero ser el hombre que te haga sentir segura, deseada, amada… como tú mereces sentirte siempre.
+          </p>
+
+          <p><strong>Porque tú, mi amor… tú no eres una mujer cualquiera.</strong></p>
+
+          <p>
+            Tú eres esa clase de mujer que no se encuentra dos veces.<br>
+            Tú eres de esas que uno ama con miedo… con miedo de perderlas, con miedo de no estar a la altura, con miedo de que
+            un día se te olvide lo mucho que vales.
+          </p>
+
+          <p><strong>Y yo no quiero que jamás se te olvide.</strong></p>
+
+          <p>
+            Porque tú eres hermosa… pero no solo hermosa por fuera.<br>
+            Eres hermosa por cómo sientes.<br>
+            Por cómo piensas.<br>
+            Por cómo amas.<br>
+            Por cómo te esfuerzas.<br>
+            Por cómo te quedas incluso cuando estás cansada.<br>
+            Por cómo me das tu amor incluso cuando tú misma estás agotada.
+          </p>
+
+          <p>
+            Mi vida… tú ayer pudiste haberte dormido. Pudiste decir “mañana lo felicito”. Pudiste dejarlo para después. Pero no.
+          </p>
+
+          <p>
+            Tú decidiste quedarte despierta.<br>
+            Tú decidiste esperarme.<br>
+            Tú decidiste regalarme ese momento… y sin saberlo, me regalaste algo que nunca se me va a olvidar.
+          </p>
+
+          <p><strong>Porque nadie… nadie había hecho eso por mí.</strong></p>
+
+          <p>
+            Y yo no puedo evitar sentirme profundamente agradecido contigo. No solo porque me felicitaste… sino porque me hiciste
+            sentir amado de una manera que me cambió el pecho por dentro.
+          </p>
+
+          <p>
+            Mi amor… yo te juro que anoche, cuando leí tu mensaje, me quedé sonriendo como un tonto… como si mi corazón se hubiera
+            convertido en un niño.
+          </p>
+
+          <p>
+            Y me dio orgullo… pero también me dieron ganas de llorar.
+          </p>
+
+          <p>
+            Porque fue demasiado bonito.<br>
+            Demasiado real.<br>
+            Demasiado tú.
+          </p>
+
+          <div class="quote">
+            “aunque no lo demuestre mucho de verdad te amo demasiado…”
+          </div>
+
+          <p>
+            Mi amor… yo sí lo veo.<br>
+            Yo sí lo siento.<br>
+            Yo sí lo noto.
+          </p>
+
+          <p>
+            Porque tu amor no está solo en palabras, está en tus detalles, en tu manera de preocuparte, en tus esfuerzos, en tus gestos…
+            en esa forma tan tuya de quererme, que a veces parece silenciosa, pero pesa más que cualquier grito.
+          </p>
+
+          <p>
+            Y yo quiero que sepas algo esta noche… algo que te lo digo con el corazón ardiéndome:
+          </p>
+
+          <p><strong>yo te amo demasiado.</strong></p>
+
+          <p>
+            Te amo en una forma que me da miedo porque no quiero perderte jamás.<br>
+            Te amo en una forma que me desespera cuando no estás cerca.<br>
+            Te amo en una forma que me pone débil cuando te pienso.<br>
+            Te amo en una forma que me hace imaginarte en mi futuro, en mi casa, en mi vida, en mis días, en mis planes, en mi cama,
+            en mis brazos… en todo.
+          </p>
+
+          <p>
+            Mi amor… tú no eres un capítulo en mi vida.<br>
+            <strong>Tú eres mi historia favorita.</strong>
+          </p>
+
+          <p>
+            Y esta noche, que ya todo está más tranquilo, que ya el cumpleaños pasó… yo solo quiero que tú lo sepas:
+          </p>
+
+          <p><strong>mi regalo más grande eres tú.</strong></p>
+
+          <p>
+            No hay nada que me emocione más que saber que existes y que me amas.<br>
+            No hay nada que me haga sentir más feliz que imaginarme que un día, cuando sea tarde, cuando estemos viejitos… tú sigas siendo
+            la mujer que me mira con amor, la mujer que me llama “mi amor”, la mujer que se queda conmigo.
+          </p>
+
+          <p>
+            Mi vida… yo quiero celebrarte a ti.<br>
+            Porque tú eres la razón por la que hoy mi cumpleaños se sintió distinto.
+          </p>
+
+          <p>
+            Y te lo digo con todo lo que soy:<br>
+            si yo pudiera pedir un deseo de cumpleaños, pediría lo mismo mil veces…
+          </p>
+
+          <p><strong>pediría seguir teniéndote a ti.</strong></p>
+
+          <p>
+            Seguir despertando con la idea de que existes.<br>
+            Seguir escuchando tu voz.<br>
+            Seguir sintiendo tus besos.<br>
+            Seguir viendo tu nombre en mi pantalla y sintiendo que se me acelera el corazón.
+          </p>
+
+          <p>
+            Porque tú tienes algo… algo que no puedo explicar.<br>
+            Tú me enloqueces, mi amor.<br>
+            Me provocas una necesidad de abrazarte, de besarte, de tenerte pegada a mí, de sentir tu piel, de sentir tu respiración cerquita…
+          </p>
+
+          <p>
+            A veces solo pienso en ti y me dan ganas de apretarte contra mi pecho y decirte bajito al oído que eres mía… que eres mi mujer…
+            que eres mi vida… que eres mi amor.
+          </p>
+
+          <p>
+            Y no de una manera egoísta… sino de esa manera intensa, profunda, hermosa… de saber que yo te pertenezco también.
+          </p>
+
+          <p><strong>Porque tú me tienes completamente.</strong></p>
+
+          <p>
+            Mi amor… si tú supieras lo orgulloso que me siento de decir “ella es mi novia”.<br>
+            Si tú supieras lo feliz que me hace saber que la mujer que amo es tú.<br>
+            Si tú supieras lo mucho que me provoca cuidarte, respetarte, adorarte… y amarte como mereces.
+          </p>
+
+          <p>
+            Esta noche quiero que duermas con una idea en tu corazón:
+          </p>
+
+          <p><strong>tú hiciste mi cumpleaños perfecto.</strong></p>
+
+          <p>
+            No por lo que dijiste… sino por lo que significó.<br>
+            Por el amor detrás de cada palabra.<br>
+            Por el esfuerzo.<br>
+            Por la intención.<br>
+            Por ese amor tuyo que no se cansa… aunque tú sí estés cansada.
+          </p>
+
+          <p>
+            Y yo te prometo, mi amor… que mientras yo exista, tú nunca vas a estar sola.<br>
+            Que voy a estar ahí para ti.<br>
+            Que voy a celebrarte como tú me celebraste.<br>
+            Que voy a amarte de una forma tan fuerte… que no te quede duda ni un solo día de tu vida.
+          </p>
+
+          <p>
+            Gracias por existir.<br>
+            Gracias por amarme.<br>
+            Gracias por hacerme sentir especial.<br>
+            Gracias por ser tú.
+          </p>
+
+          <p>
+            Y gracias… por ser la primera.
+          </p>
+
+          <p>
+            La primera en felicitarme.<br>
+            La primera en hacerme sentir que valgo.<br>
+            La primera en demostrarme que el amor verdadero sí existe.
+          </p>
+
+          <p>
+            Mi amor… yo no sé qué hice para merecerte, pero juro que voy a pasar el resto de mi vida intentando estar a la altura de lo que tú eres.
+          </p>
+
+          <p>
+            Te amo con una intensidad que no se apaga.<br>
+            Te amo con ganas.<br>
+            Te amo con locura.<br>
+            Te amo con el alma.
+          </p>
+
+          <p>
+            Y si hoy fue mi cumpleaños… entonces mi mejor regalo fue leer tu mensaje y darme cuenta de algo:
+          </p>
+
+          <p><strong>yo soy afortunado… porque tengo a la mujer más hermosa y más especial del mundo.</strong></p>
+
+          <p><strong>ICH LIEBE DICH SO SEHR…</strong> con todo mi corazón. 💋❤️</p>
+
+          <div class="signature">
+            <div class="sig-line"><strong>Siempre tuyo,</strong></div>
+            <div class="sig-line">Tu amor</div>
+            <div class="sig-name">Juan Kaleth</div>
+            <div class="sig-extra"><strong>JUAN KALETH MENDOZA PRIMERA 💜</strong></div>
+          </div>
+
+          <!-- FRASE NEÓN FINAL -->
+          <div class="neon">
+            <div class="neon-text">Una promesa para ti</div>
+            <div class="neon-phrase">
+              “Mi cumpleaños fue perfecto… porque mi regalo más grande eres tú, <span>VALERIA PETRO VILLAZÓN</span>.”
+            </div>
+          </div>
+
+          <!-- BOTÓN CINEMÁTICO -->
+          <div class="actions">
+            <button class="btn" onclick="openCinematic()">✨ Continuará…</button>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CINEMÁTICA -->
+  <div class="cinematic" id="cinematic">
+    <div class="cin-box">
+      <div class="cin-title">Continuará…</div>
+      <div class="cin-sub">una sorpresa en camino</div>
+
+      <div class="cin-text" id="cinText">
+        <strong>En 5 o 6 días…</strong> no será una noche cualquiera.<br><br>
+        Será el día en que el universo me recuerde que nació mi persona favorita…<br>
+        <strong>tú.</strong><br><br>
+        Y yo no pienso dejar que tu cumpleaños pase como si fuera un día normal…<br><br>
+        Porque así como tú te quedaste despierta para ser la primera en felicitarme…<br>
+        <strong>yo voy a quedarme con el corazón despierto para celebrarte como mereces.</strong><br><br>
+        Prepárate… porque lo que viene no es solo un detalle…<br>
+        <strong>es una promesa hecha sorpresa.</strong> 💜✨
+      </div>
+
+      <div class="spark">— “Lo mejor apenas empieza…” —</div>
+
+      <div class="cin-footer">
+        <button class="mini-btn" onclick="closeCinematic()">Cerrar</button>
+        <button class="mini-btn" onclick="typeAgain()">Repetir Cinemática</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cinematic = document.getElementById("cinematic");
+    const cinText = document.getElementById("cinText");
+
+    const originalText = cinText.innerHTML;
+
+    function openCinematic(){
+      cinematic.classList.add("active");
+      typeWriterEffect();
+    }
+
+    function closeCinematic(){
+      cinematic.classList.remove("active");
+    }
+
+    function typeAgain(){
+      typeWriterEffect(true);
+    }
+
+    function typeWriterEffect(force=false){
+      let text = originalText;
+      cinText.innerHTML = "";
+      let i = 0;
+
+      // Convertimos HTML a "texto visible" conservando tags simples
+      // Vamos a simular tipeo sin romper el HTML:
+      // (lo hacemos por segmentos para mantener <br> y <strong>)
+      const parts = text
+        .replaceAll("<br><br>", "\n\n")
+        .replaceAll("<br>", "\n")
+        .replaceAll("<strong>", "§§STRONG_OPEN§§")
+        .replaceAll("</strong>", "§§STRONG_CLOSE§§")
+        .replaceAll("&nbsp;", " ");
+
+      const plain = parts.split("");
+
+      let current = "";
+      let openedStrong = false;
+
+      const speed = 18; // velocidad del tipeo
+
+      const timer = setInterval(() => {
+        if(i >= plain.length){
+          clearInterval(timer);
+          // reconstrucción final segura
+          cinText.innerHTML = rebuildHTML(current);
+          return;
+        }
+
+        current += plain[i];
+        cinText.innerHTML = rebuildHTML(current);
+
+        i++;
+      }, speed);
+    }
+
+    function rebuildHTML(txt){
+      let out = txt
+        .replaceAll("§§STRONG_OPEN§§", "<strong>")
+        .replaceAll("§§STRONG_CLOSE§§", "</strong>")
+        .replaceAll("\n\n", "<br><br>")
+        .replaceAll("\n", "<br>");
+
+      return out;
+    }
+
+    // Cerrar al tocar afuera
+    cinematic.addEventListener("click", (e)=>{
+      if(e.target === cinematic){
+        closeCinematic();
+      }
+    });
+  </script>
+
+</body>
+  </html>
